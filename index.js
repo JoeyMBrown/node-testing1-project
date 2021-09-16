@@ -7,12 +7,12 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  const trimmedString = {}
+  const trimmedString = {};
 
-  for(key in obj) {
+  for (key in obj) {
     trimmedString[key] = obj[key].trim();
   }
-  return trimmedString
+  return trimmedString;
 }
 
 /**
@@ -24,10 +24,10 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  for(key in obj) {
+  for (key in obj) {
     obj[key] = obj[key].trim();
   }
-  return obj
+  return obj;
 }
 
 /**
@@ -42,12 +42,12 @@ function findLargestInteger(integers) {
   let largestInt = 0;
 
   integers.map((intObj) => {
-    if(intObj.integer > largestInt) {
+    if (intObj.integer > largestInt) {
       largestInt = intObj.integer;
     } else {
-      return
+      return;
     }
-  })
+  });
 
   return largestInt;
 }
@@ -58,8 +58,7 @@ class Counter {
    * @param {number} initialNumber - the initial state of the count
    */
   constructor(initialNumber) {
-    this.initialNumber = initialNumber,
-    this.countDownCalls = 0
+    (this.initialNumber = initialNumber), (this.countDownCalls = 0);
   }
 
   /**
@@ -75,13 +74,13 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    if(!this.countDownCalls) {
+    if (!this.countDownCalls) {
       this.countDownCalls = 1;
       return this.initialNumber;
-    } else if(this.countDownCalls && this.initialNumber > 0) {
-      return this.initialNumber -= 1;
+    } else if (this.countDownCalls && this.initialNumber > 0) {
+      return (this.initialNumber -= 1);
     } else {
-      return 0
+      return 0;
     }
   }
 }
@@ -91,8 +90,8 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
-    this.seasons = ['summer', 'fall', 'winter', 'spring'],
-    this.currentSeason = 0
+    (this.seasons = ["summer", "fall", "winter", "spring"]),
+      (this.currentSeason = 0);
   }
 
   /**
@@ -108,14 +107,14 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    const season = this.seasons[this.currentSeason]
+    const season = this.seasons[this.currentSeason];
 
-    if(this.currentSeason <= 2) {
-      this.currentSeason += 1
-      return season
+    if (this.currentSeason <= 2) {
+      this.currentSeason += 1;
+      return season;
     } else {
       this.currentSeason = 0;
-      return season
+      return season;
     }
   }
 }
@@ -128,10 +127,10 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0 // car initilizes with zero miles
-    this.tank = tankSize // car initiazes full of gas
-    this.mpg = mpg
-    this.name = name
+    this.odometer = 0; // car initilizes with zero miles
+    this.tank = tankSize; // car initiazes full of gas
+    this.mpg = mpg;
+    this.name = name;
   }
 
   /**
@@ -148,16 +147,16 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
-    if(this.tank >= (distance / this.mpg).toFixed(2)) {
+    if (this.tank >= (distance / this.mpg).toFixed(2)) {
       this.tank -= (distance / this.mpg).toFixed(2);
-      this.odometer += distance
-      return this.odometer
+      this.odometer += distance;
+      return this.odometer;
     } else if (this.tank === 0) {
-      return 'You cannot drive without gas!'
+      return "You cannot drive without gas!";
     } else {
-      this.odometer += (this.tank * this.mpg)
-      this.tank = 0
-      return this.odometer
+      this.odometer += this.tank * this.mpg;
+      this.tank = 0;
+      return this.odometer;
     }
   }
 
@@ -173,14 +172,14 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    if(this.tank === 20) {
-      return 'You have a full tank...'
+    if (this.tank === 20) {
+      return "You have a full tank...";
     } else if (this.tank + gallons < 20) {
-      this.tank += gallons
-      return this.tank
+      this.tank += gallons;
+      return this.tank;
     } else {
-      this.tank = 20
-      return this.tank
+      this.tank = 20;
+      return this.tank;
     }
   }
 }
@@ -199,7 +198,7 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
-  if(number % 2 === 0) {
+  if (number % 2 === 0) {
     return true;
   } else {
     return false;
@@ -214,4 +213,4 @@ module.exports = {
   Counter,
   Seasons,
   Car,
-}
+};
